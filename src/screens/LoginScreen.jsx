@@ -268,9 +268,9 @@ export default function LoginScreen() {
                       }
                     </button>
 
-                    <button onClick={() => nav('/categories', { replace: true })} style={{ width: '100%', padding: '13px', borderRadius: 14, background: 'transparent', border: '2px solid #E5E9F5', cursor: 'pointer', color: '#6B7280', fontSize: 14, fontWeight: 600, marginBottom: 28, fontFamily: 'inherit' }}>
+                    {/* <button onClick={() => nav('/categories', { replace: true })} style={{ width: '100%', padding: '13px', borderRadius: 14, background: 'transparent', border: '2px solid #E5E9F5', cursor: 'pointer', color: '#6B7280', fontSize: 14, fontWeight: 600, marginBottom: 28, fontFamily: 'inherit' }}>
                       Skip for now
-                    </button>
+                    </button> */}
 
                     <div style={{ background: '#EFF6FF', borderRadius: 12, padding: '12px 16px', display: 'flex', gap: 10, alignItems: 'center' }}>
                       <span className="material-icons" style={{ fontSize: 16, color: '#2563EB' }}>lock</span>
