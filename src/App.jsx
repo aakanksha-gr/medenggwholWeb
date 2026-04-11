@@ -1,4 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useGlobalStore } from './store/globalStore'
+import { loadUserProfile } from './services/localStorageService'
+
 import SplashScreen       from './screens/SplashScreen'
 import LoginScreen        from './screens/LoginScreen'
 import ProfileScreen      from './screens/ProfileScreen'
@@ -9,6 +13,33 @@ import SolutionScreen     from './screens/SolutionScreen'
 import AppointmentScreen  from './screens/AppointmentScreen'
 
 export default function App() {
+  const { setCategories, setAdmin, setInputScreens, setSolutions, setUserData, healthCategories } = useGlobalStore()
+
+  useEffect(() => {
+    if (healthCategories.length === 0 && window.location.pathname !== '/') {
+      const initSilent = async () => {
+        try {
+          const catRes = await fetch('/json/health_categories.json')
+          const catData = await catRes.json()
+          setCategories(catData.categories || [])
+          if (catData.admin) setAdmin(catData.admin)
+
+          const solRes = await fetch('/json/patient_input_solution_screens.json')
+          const solData = await solRes.json()
+          setInputScreens(solData.screens || [])
+          setSolutions(solData.solutions || [])
+
+          const { userData } = loadUserProfile()
+          if (userData) {
+            setUserData(userData)
+          }
+        } catch (e) {
+          console.error('Silent init failed:', e)
+        }
+      }
+      initSilent()
+    }
+  }, [healthCategories.length, setCategories, setAdmin, setInputScreens, setSolutions, setUserData])
   return (
       <div className="app-shell">
         <Routes>

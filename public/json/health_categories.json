@@ -6,132 +6,27 @@
   "categories": [
     {
       "id": 1,
-      "name": "Relationship Issue",
-      "icon": "favorite",
-      "gradient": ["#FFE0E6", "#FFF0F3"],
-      "image": "assets/images/stress_man_laptop.png",
-      "description": "Issues with personal and professional relationships",
-      "doctor": {
-        "name": "Dr. Aisha Sharma",
-        "whatsapp": "917546826450",
-        "specialization": "Relationship & Emotional Wellness"
-      },
-      "subcategories": [
-        {"id": 101, "name": "Partner / Spouse", "image": "assets/images/stress_man_laptop.png"},
-        {"id": 102, "name": "Children", "image": "assets/images/healthy_woman_fullbody.png"},
-        {"id": 103, "name": "Parent", "image": "assets/images/healthy_woman_standing.png"},
-        {"id": 104, "name": "Office Colleagues / Boss", "image": "assets/images/stress_man_laptop.png"}
-      ]
+      "name": "Fever & Infection",
+      "icon": "medical_services",
+      "gradient": ["#FCE4EC", "#FFF9C4"],
+      "image": "assets/images/fever_mild_moderate_severe.png",
+      "description": "Symptom check for fever, cold, cough, and related infections."
     },
     {
       "id": 2,
-      "name": "Stress",
-      "icon": "psychology",
-      "gradient": ["#E8EAF6", "#EDE7F6"],
-      "image": "assets/images/stress_man_laptop.png",
-      "description": "Mental and emotional stress from daily life",
-      "doctor": {
-        "name": "Dr. Rahul Mehta",
-        "whatsapp": "917546826450",
-        "specialization": "Stress & Mental Wellness"
-      },
-      "subcategories": [
-        {"id": 201, "name": "Career Related", "image": "assets/images/stress_man_laptop.png"},
-        {"id": 202, "name": "Study Related (Students)", "image": "assets/images/headache_stress_woman.png"},
-        {"id": 203, "name": "Office Workload", "image": "assets/images/stress_man_laptop.png"}
-      ]
+      "name": "PCOS & Hormones",
+      "icon": "self_improvement",
+      "gradient": ["#E3F2FD", "#BBDEFB"],
+      "image": "assets/images/pcod_period_calendar_pain.png",
+      "description": "Evaluate menstrual irregularity, hormones, and related symptoms."
     },
     {
       "id": 3,
-      "name": "Lifestyle Issue",
-      "icon": "self_improvement",
-      "gradient": ["#E0F7FA", "#E0F2F1"],
-      "image": "assets/images/pcod_period_calendar_pain.png",
-      "description": "PCOS, thyroid, diabetes and lifestyle conditions",
-      "doctor": {
-        "name": "Dr. Priya Nair",
-        "whatsapp": "917546826450",
-        "specialization": "Lifestyle & Hormonal Health"
-      },
-      "subcategories": [
-        {"id": 301, "name": "PCOS / PCOD", "image": "assets/images/pcod_period_calendar_pain.png"},
-        {"id": 302, "name": "Thyroid", "image": "assets/images/headache_stress_woman.png"},
-        {"id": 303, "name": "Sugar (Diabetes)", "image": "assets/images/obesity_junk_food_couch.png"},
-        {"id": 304, "name": "Blood Pressure", "image": "assets/images/headache_stress_woman.png"}
-      ]
-    },
-    {
-      "id": 4,
-      "name": "Obesity",
+      "name": "Thyroid & Weight",
       "icon": "monitor_weight",
       "gradient": ["#FFF8E1", "#FFF3E0"],
       "image": "assets/images/obesity_junk_food_couch.png",
-      "description": "Weight management and healthy diet planning",
-      "doctor": {
-        "name": "Dr. Suresh Patil",
-        "whatsapp": "917546826450",
-        "specialization": "Nutrition & Weight Management"
-      },
-      "subcategories": []
-    },
-    {
-      "id": 5,
-      "name": "Regular Health Issues",
-      "icon": "medical_services",
-      "gradient": ["#E8F5E9", "#F1F8E9"],
-      "image": "assets/images/fever_mild_moderate_severe.png",
-      "description": "Common everyday health problems",
-      "doctor": {
-        "name": "Dr. Kavita Singh",
-        "whatsapp": "917546826450",
-        "specialization": "General Physician"
-      },
-      "subcategories": [
-        {"id": 501, "name": "Cold", "image": "assets/images/cold_girl_shivering.png"},
-        {"id": 502, "name": "Cough", "image": "assets/images/nausea_vomiting_woman.png"},
-        {"id": 503, "name": "Fever", "image": "assets/images/fever_mild_moderate_severe.png"}
-      ]
-    },
-    {
-      "id": 6,
-      "name": "Critical Health Issues",
-      "icon": "emergency",
-      "gradient": ["#FCE4EC", "#FFF9C4"],
-      "image": "assets/images/lung_health_woman.png",
-      "description": "Serious health conditions requiring specialist care",
-      "doctor": {
-        "name": "Dr. Anand Joshi",
-        "whatsapp": "917546826450",
-        "specialization": "Critical Care Specialist"
-      },
-      "subcategories": [
-        {"id": 601, "name": "Heart", "image": "assets/images/lung_health_woman.png"},
-        {"id": 602, "name": "Lungs", "image": "assets/images/lung_health_woman.png"},
-        {"id": 603, "name": "Brain", "image": "assets/images/headache_stress_woman.png"},
-        {"id": 604, "name": "Kidney", "image": "assets/images/healthy_man_standing.png"},
-        {"id": 605, "name": "Accidental Trauma", "image": "assets/images/healthy_man_standing.png"}
-      ]
-    },
-    {
-      "id": 7,
-      "name": "Mental Health Disorders",
-      "icon": "sentiment_very_dissatisfied",
-      "gradient": ["#EDE7F6", "#E8EAF6"],
-      "image": "assets/images/headache_stress_woman.png",
-      "description": "OCD, bipolar, depression, anxiety and related disorders",
-      "doctor": {
-        "name": "Dr. Meera Iyer",
-        "whatsapp": "917546826450",
-        "specialization": "Psychiatrist & Psychologist"
-      },
-      "subcategories": [
-        {"id": 701, "name": "Obsessive Compulsive Disorder", "image": "assets/images/stress_man_laptop.png"},
-        {"id": 702, "name": "Bipolar Disorder", "image": "assets/images/pcod_mood_swing_fatigue.png"},
-        {"id": 703, "name": "Depression / Anxiety", "image": "assets/images/headache_stress_woman.png"},
-        {"id": 704, "name": "Mania", "image": "assets/images/headache_stress_woman.png"},
-        {"id": 705, "name": "ADHD", "image": "assets/images/stress_man_laptop.png"},
-        {"id": 706, "name": "Narcissism", "image": "assets/images/healthy_man_standing.png"}
-      ]
+      "description": "Check for thyroid issues, diabetes, and lifestyle factors."
     }
   ]
 }

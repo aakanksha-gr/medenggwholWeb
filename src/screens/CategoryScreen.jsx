@@ -25,6 +25,7 @@ export default function CategoryScreen() {
   const nav = useNavigate()
   const { healthCategories, userData, setUserData, selectDoctor } = useGlobalStore()
   const [activeTab, setActiveTab] = useState('home')
+  const [searchQuery, setSearchQuery] = useState('')
 
   function handleSelect(cat) {
     setUserData({
@@ -116,9 +117,24 @@ export default function CategoryScreen() {
                 </button>
               </div>
 
-              <div className="search-bar">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2.5" strokeLinecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <span style={{ color:'rgba(255,255,255,0.45)', fontSize:15 }}>Search health concerns...</span>
+              <div className="search-bar" style={{ padding: '0 18px' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2.5" strokeLinecap="round" style={{ flexShrink: 0 }}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input 
+                  type="text" 
+                  placeholder="Search health concerns..." 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  style={{ 
+                    background: 'transparent', 
+                    border: 'none', 
+                    color: '#fff', 
+                    fontSize: 15, 
+                    padding: '13px 0 13px 12px', 
+                    flex: 1, 
+                    outline: 'none',
+                    fontFamily: 'inherit'
+                  }} 
+                />
               </div>
 
               <div className="stats-row">
@@ -156,7 +172,12 @@ export default function CategoryScreen() {
 
               {/* Category grid */}
               <div className="category-grid" style={{ gridColumn:'1 / -1' }}>
-                {(healthCategories || []).map((cat, idx) => (
+                {(healthCategories || [])
+                  .filter(cat => 
+                    cat.name?.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                    cat.description?.toLowerCase().includes(searchQuery.toLowerCase())
+                  )
+                  .map((cat, idx) => (
                     <CategoryCard
                         key={cat.id}
                         cat={cat}

@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { saveUserProfile } from '../services/localStorageService'
 
 const defaultUser = {
   uid: '', name: '', mobile: '', email: '', age: '', gender: 'Male',
@@ -28,7 +29,11 @@ export const useGlobalStore = create((set, get) => ({
   },
 
   setUserData: (patch) =>
-    set(s => ({ userData: { ...s.userData, ...patch } })),
+    set(s => {
+      const newUserData = { ...s.userData, ...patch }
+      saveUserProfile(newUserData)
+      return { userData: newUserData }
+    }),
 
   resetSession: () =>
     set(s => ({

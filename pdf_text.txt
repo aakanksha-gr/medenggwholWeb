@@ -1,0 +1,71 @@
+FEVER 
+
+Headache 
+Muscle pain Weakness 
+Runny Nose 
+Sore Throat 
+Cough 
+Difficulty 
+Breathing 
+Nausea 
+Abdominal 
+Pain Vomiting Select the symptoms you are experiencing 
+Have you eaten food from outside (restaurant, street food, 
+or takeaway) recently? 
+No Yes
+
+Have you consumed cold foods or drinks such as ice 
+cream or cold drinks recently? 
+No Yes
+Have you undergone severe body stress such as an 
+intense workout or heavy physical exertion recently? 
+No Yes
+Have you recently travelled to a new place or climate ?
+No Yes
+
+
+PCOS 
+Are your menstrual periods irregular (cycle longer than 35 
+days or unpredictable)? 
+No Yes
+Do you experience mood swings, anxiety, or fatigue around 
+menstrual cycles? 
+No Yes
+Do you have excess facial or body hair (chin, upper lip, 
+chest, abdomen)? 
+No Yes
+Hair loss 
+Acne 
+Have you gained weight easily, especially around the 
+abdomen? 
+No Yes
+Do you have dark skin patches on 
+neck, underarms, or groin? 
+No Yes
+THYROID 
+WEIGHT GAIN 
+Select the meals you have throughout the day 
+Do you eat fried foods more than 2 
+days per week? 
+No Yes
+Do you  consume sugary foods or sweets more than 2 
+days per week? 
+No Yes
+Do you consume non-vegetarian food (meat, fish, eggs)? 
+No Yes
+Have you experienced any major stress or emotional 
+events in the last 1–2 years? 
+Examples: family conflict, financial problems, loss of a 
+loved one, work stress. 
+No Yes
+
+Thyroid 
+Blood pressure 
+Diabetes Select if you are suffering from any of the 
+below mentioned diseases 
+Do you spend long hours sitting (desk work)? 
+No Yes
+
+
+
+

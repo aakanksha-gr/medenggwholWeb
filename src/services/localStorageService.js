@@ -1,6 +1,8 @@
 const K = {
   uid:'uid', name:'name', mobile:'mobile', email:'email', age:'age',
   gender:'gender', isLoggedIn:'isLoggedIn', isProfileComplete:'isProfileComplete',
+  selectedCategoryId: 'selectedCategoryId', selectedCategoryName: 'selectedCategoryName',
+  selectedSubCategoryId: 'selectedSubCategoryId', selectedSubCategoryName: 'selectedSubCategoryName'
 }
 
 export function saveUserProfile(user) {
@@ -13,15 +15,18 @@ export function saveUserProfile(user) {
     localStorage.setItem(K.gender,            user.gender || 'Male')
     localStorage.setItem(K.isLoggedIn,        String(user.isLoggedIn        ?? false))
     localStorage.setItem(K.isProfileComplete, String(user.isProfileComplete ?? false))
+    localStorage.setItem(K.selectedCategoryId,      String(user.selectedCategoryId || 0))
+    localStorage.setItem(K.selectedCategoryName,    user.selectedCategoryName || '')
+    localStorage.setItem(K.selectedSubCategoryId,   String(user.selectedSubCategoryId || 0))
+    localStorage.setItem(K.selectedSubCategoryName, user.selectedSubCategoryName || '')
   } catch (e) { console.error(e) }
 }
 
 export function loadUserProfile() {
   try {
-    if (localStorage.getItem(K.isLoggedIn) !== 'true')
-      return { isLoggedIn: false, userData: null }
+    const isLoggedIn = localStorage.getItem(K.isLoggedIn) === 'true';
     return {
-      isLoggedIn: true,
+      isLoggedIn: isLoggedIn,
       userData: {
         uid:              localStorage.getItem(K.uid)    || '',
         name:             localStorage.getItem(K.name)   || '',
@@ -29,8 +34,12 @@ export function loadUserProfile() {
         email:            localStorage.getItem(K.email)  || '',
         age:              localStorage.getItem(K.age)    || '',
         gender:           localStorage.getItem(K.gender) || 'Male',
-        isLoggedIn:       true,
+        isLoggedIn:       isLoggedIn,
         isProfileComplete: localStorage.getItem(K.isProfileComplete) === 'true',
+        selectedCategoryId: Number(localStorage.getItem(K.selectedCategoryId)) || 0,
+        selectedCategoryName: localStorage.getItem(K.selectedCategoryName) || '',
+        selectedSubCategoryId: Number(localStorage.getItem(K.selectedSubCategoryId)) || 0,
+        selectedSubCategoryName: localStorage.getItem(K.selectedSubCategoryName) || '',
       },
     }
   } catch { return { isLoggedIn: false, userData: null } }
