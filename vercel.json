@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/msg91/(.*)",
+      "destination": "https://api.msg91.com/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
