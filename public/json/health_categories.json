@@ -8,25 +8,67 @@
       "id": 1,
       "name": "Fever & Infection",
       "icon": "medical_services",
-      "gradient": ["#FCE4EC", "#FFF9C4"],
+      "gradient": [
+        "#FCE4EC",
+        "#FFF9C4"
+      ],
       "image": "assets/images/fever_mild_moderate_severe.png",
-      "description": "Symptom check for fever, cold, cough, and related infections."
+      "description": "Evaluate fever, cold, cough, and related symptoms"
     },
     {
       "id": 2,
       "name": "PCOS & Hormones",
       "icon": "self_improvement",
-      "gradient": ["#E3F2FD", "#BBDEFB"],
+      "gradient": [
+        "#E3F2FD",
+        "#BBDEFB"
+      ],
       "image": "assets/images/pcod_period_calendar_pain.png",
-      "description": "Evaluate menstrual irregularity, hormones, and related symptoms."
+      "description": "Evaluate menstrual irregularity, hormones, and related symptoms"
     },
     {
       "id": 3,
-      "name": "Thyroid & Weight",
+      "name": "Obesity and Weight Gain",
       "icon": "monitor_weight",
-      "gradient": ["#FFF8E1", "#FFF3E0"],
+      "gradient": [
+        "#FFF8E1",
+        "#FFF3E0"
+      ],
       "image": "assets/images/obesity_junk_food_couch.png",
-      "description": "Check for thyroid issues, diabetes, and lifestyle factors."
+      "description": "Evaluate weight gain, metabolism, and related symptoms"
+    },
+    {
+      "id": 4,
+      "name": "Stress & Anxiety",
+      "icon": "psychology",
+      "gradient": [
+        "#E3F2FD",
+        "#BBDEFB"
+      ],
+      "image": "assets/images/stress_teacher_student.png",
+      "description": "Evaluate stress, anxiety, and related symptoms"
+    },
+    {
+      "id": 5,
+      "name": "Diabetes",
+      "icon": "bloodtype",
+      "gradient": [
+        "#E3F2FD",
+        "#BBDEFB"
+      ],
+      "image": "assets/images/diabetes_medication.png",
+      "description": "Evaluate blood sugar, diabetes, and related symptoms"
+    },
+    {
+      "id": 6,
+      "name": "Blood Pressure",
+      "icon": "monitor_heart",
+      "gradient": [
+        "#E3F2FD",
+        "#BBDEFB"
+      ],
+      "image": "assets/images/chest_pain.png",
+      "description": "Evaluate blood pressure, heart health, and related symptoms"
     }
   ]
 }

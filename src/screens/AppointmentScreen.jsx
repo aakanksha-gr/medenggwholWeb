@@ -31,7 +31,7 @@ export default function AppointmentScreen() {
 
   const dateInputRef = useRef(null)
 
-  const catName = userData?.selectedCategoryName || 'Health'
+  const catName = userData?.selectedCategoryName || 'General Consultation (To be checked)'
   const subName = userData?.selectedSubCategoryName || ''
   const todayStr = new Date().toISOString().split('T')[0]
   const maxStr = new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
