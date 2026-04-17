@@ -183,6 +183,335 @@ const SCREEN_MAP = {
       type: 'yesno',
       yesId: 't_sit_yes', noId: 't_sit_no'
     }
+  ],
+  '4': [
+    {
+      title: 'Academic Environment',
+      question: 'Do you feel that teachers do not interact properly, do not explain concepts clearly, or create fear about studies/exams?',
+      image: "/images/stress_teacher_student.png",
+      type: 'yesno',
+      yesId: 's_teacher_yes', noId: 's_teacher_no'
+    },
+    {
+      title: 'Social Environment',
+      question: 'Do you feel stressed because your friends are performing better than you?',
+      image: "/images/peer_pressure.png",
+      type: 'yesno',
+      yesId: 's_friends_yes', noId: 's_friends_no'
+    },
+    {
+      title: 'Parental Environment',
+      question: 'Do you feel parental pressure?',
+      image: "/images/parental_pressure.png",
+      type: 'yesno',
+      yesId: 's_parent_yes', noId: 's_parent_no'
+    },
+    {
+      title: 'Focus & Concentration',
+      question: 'Do you find it difficult to concentrate on studies or tasks?',
+      image: "/images/focus_issues.png",
+      type: 'yesno',
+      yesId: 's_focus_yes', noId: 's_focus_no'
+    },
+    {
+      title: 'Mental Health History',
+      question: 'Have you had any mental health concerns before?',
+      image: "/images/stand_stress.png",
+      type: 'yesno',
+      yesId: 's_mental_yes', noId: 's_mental_no'
+    },
+    {
+      title: 'Medication',
+      question: 'Are you currently taking any medication related to stress, anxiety, or focus?',
+      image: "/images/medication.png",
+      type: 'yesno',
+      yesId: 's_medication_yes', noId: 's_medication_no'
+    }
+  ],
+  '5': [
+    {
+      title: 'Dietary Habits',
+      question: 'Select the meals you have throughout the day',
+      type: 'multiple',
+      options: [
+        { id: 'diab_m_bf', text: 'Breakfast', img: "/images/diet_breakfast.png" },
+        { id: 'diab_m_lu', text: 'Lunch', img: "/images/diet_lunch.png" },
+        { id: 'diab_m_sn', text: 'Snacks', img: "/images/diet_snack.png" },
+        { id: 'diab_m_dn', text: 'Dinner', img: "/images/diet_dinner.png" }
+      ]
+    },
+    {
+      title: 'Dietary Habits',
+      question: 'Do you eat fried foods more than 2 days per week?',
+      image: "/images/junkfood_samosa_man.png",
+      type: 'yesno',
+      yesId: 'diab_fried_yes', noId: 'diab_fried_no'
+    },
+    {
+      title: 'Dietary Habits',
+      question: 'Do you consume sugary foods or sweets more than 2 days per week?',
+      image: "/images/junkfood_sweets_donuts.png",
+      type: 'yesno',
+      yesId: 'diab_sugar_yes', noId: 'diab_sugar_no'
+    },
+    {
+      title: 'Dietary Habits',
+      question: 'Do you consume non-vegetarian food (meat, fish, eggs)?',
+      image: "/images/junkfood_fried_chicken.png",
+      type: 'yesno',
+      yesId: 'diab_nv_yes', noId: 'diab_nv_no'
+    },
+    {
+      title: 'Stress & Mental Health',
+      question: 'Have you experienced any major stress or emotional events in the last 1–2 years? \n Examples: family conflict, financial problems, loss of a loved one, work stress.',
+      image: "/images/stand_stress.png",
+      type: 'yesno',
+      yesId: 'diab_stress_yes', noId: 'diab_stress_no'
+    },
+    {
+      title: 'Medical History',
+      question: 'Select if you are suffering from any of the below mentioned diseases',
+      baseImg: "/images/thyroid_inner_part.png",
+      type: 'bodymap',
+      options: [
+        { id: 'diab_d_th', text: 'Thyroid', px: 46, py: 17, ly: 28 },
+        { id: 'diab_d_bp', text: 'Blood pressure', px: 46, py: 35, ly: 50 },
+      ]
+    },
+    {
+      title: 'Lifestyle',
+      question: 'Do you spend long hours sitting (desk work)?',
+      image: "/images/stress_man_laptop.png",
+      type: 'yesno',
+      yesId: 'diab_sit_yes', noId: 'diab_sit_no'
+    },
+    {
+      title: 'Lifestyle',
+      question: 'Do you currently smoke or use tobacco products?',
+      image: "/images/smoking.png",
+      type: 'yesno',
+      yesId: 'diab_smoke_yes', noId: 'diab_smoke_no'
+    },
+    {
+      title: 'Lifestyle',
+      question: 'Do you consume alcohol?',
+      image: "/images/alcohol.png",
+      type: 'yesno',
+      yesId: 'diab_alcohol_yes', noId: 'diab_alcohol_no'
+    },
+    {
+      title: 'Lifestyle',
+      question: 'Do you exercise regularly?',
+      image: "/images/exercise.png",
+      type: 'yesno',
+      yesId: 'diab_exercise_yes', noId: 'diab_exercise_no'
+    },
+    {
+      title: 'Lifestyle',
+      question: 'How many hours do you sit daily?',
+      image: "/images/sit_hours.png",
+      type: 'multiple',
+      options: [
+        { id: 'diab_hours_sit_eq', text: '8 Hours' },
+        { id: 'diab_hours_sit_gt', text: 'More than 8 Hours' },
+        { id: 'diab_hours_sit_lt', text: 'Less than 8 Hours' }
+      ]
+    },
+    {
+      title: 'Physical Symptoms',
+      question: 'Do you experience frequent urination (especially at night)?',
+      image: "/images/urination.png",
+      type: 'yesno',
+      yesId: 'diab_frequent_urination_yes', noId: 'diab_frequent_urination_no'
+    },
+    {
+      title: 'Physical Symptoms',
+      question: 'Do you experience excessive thirst?',
+      image: "/images/thirst.png",
+      type: 'yesno',
+      yesId: 'diab_excessive_thirst_yes', noId: 'diab_excessive_thirst_no'
+    },
+    {
+      title: 'Physical Symptoms',
+      question: 'Do you experience unexplained weight loss?',
+      image: "/images/weight_loss.png",
+      type: 'yesno',
+      yesId: 'diab_unexplained_weight_loss_yes', noId: 'diab_unexplained_weight_loss_no'
+    },
+    {
+      title: 'Physical Symptoms',
+      question: 'Do you experience increased hunger?',
+      image: "/images/hunger.png",
+      type: 'yesno',
+      yesId: 'diab_hunger_yes', noId: 'diab_hunger_no'
+    },
+    {
+      title: 'Physical Symptoms',
+      question: 'Do you experience fatigue or weakness?',
+      image: "/images/weakness.png",
+      type: 'yesno',
+      yesId: 'diab_fatigue_yes', noId: 'diab_fatigue_no'
+    },
+    {
+      title: 'Physical Symptoms',
+      question: 'Do you experience blurred vision?',
+      image: "/images/blurred_vision.png",
+      type: 'yesno',
+      yesId: 'diab_blurred_vision_yes', noId: 'diab_blurred_vision_no'
+    },
+    {
+      title: 'Physical Symptoms',
+      question: 'Do you experience slow healing of wounds?',
+      image: "/images/slow_healing.png",
+      type: 'yesno',
+      yesId: 'diab_slow_healing_yes', noId: 'diab_slow_healing_no'
+    },
+    {
+      title: 'Family History',
+      question: 'Do you have a family history of diabetes?',
+      image: "/images/diabetes_family_history.png",
+      type: 'yesno',
+      yesId: 'diab_family_yes', noId: 'diab_family_no'
+    },
+    {
+      title: 'Medication',
+      question: 'Are you on any medication?',
+      image: "/images/diabetes_medication.png",
+      type: 'yesno',
+      yesId: 'diab_medication_yes', noId: 'diab_medication_no'
+    }
+  ],
+  '6': [
+    {
+      title: 'Medical Symptoms',
+      question: 'Select if you are suffering from any of the below mentioned diseases',
+      baseImg: "/images/blood_pressure_headache.png",
+      type: 'bodymap',
+      options: [
+        { id: 'bp_d_ha', text: 'Headache', px: 52, py: 9, ly: 26 },
+        { id: 'bp_d_dz', text: 'Dizziness', px: 54, py: 18, ly: 45 },
+        { id: 'bp_d_bv', text: 'Blurred Vision', px: 60, py: 30, ly: 65 },
+      ]
+    },
+    {
+      title: 'Physical Symptoms',
+      question: 'Do you experience fatigue or weakness? ',
+      image: "/images/weakness.png",
+      type: 'yesno',
+      yesId: 'bp_fatigue_yes', noId: 'bp_fatigue_no'
+    },
+    {
+      title: 'Medical Symptoms',
+      question: 'Select if you are suffering from any of the below mentioned diseases',
+      baseImg: "/images/chest_pain.png",
+      type: 'bodymap',
+      options: [
+        { id: 'bp_d_sb', text: 'Shortness of Breath', px: 40, py: 17, ly: 37 },
+        { id: 'bp_d_cp', text: 'Chest Pain', px: 55, py: 40, ly: 60 }
+      ]
+    },
+    {
+      title: 'Physical Symptoms',
+      question: 'Do you experience shortness of breath?',
+      image: "/images/shortness_of_breath.png",
+      type: 'yesno',
+      yesId: 'bp_shortness_of_breath_yes', noId: 'bp_shortness_of_breath_no'
+    },
+    {
+      title: 'Physical Symptoms',
+      question: 'Do you experience nosebleeds?',
+      image: "/images/nosebleed.png",
+      type: 'yesno',
+      yesId: 'bp_nosebleed_yes', noId: 'bp_nosebleed_no'
+    },
+    {
+      title: 'Dietary Habits',
+      question: 'Select the meals you have throughout the day',
+      type: 'multiple',
+      options: [
+        { id: 'bp_m_bf', text: 'Breakfast', img: "/images/diet_breakfast.png" },
+        { id: 'bp_m_lu', text: 'Lunch', img: "/images/diet_lunch.png" },
+        { id: 'bp_m_sn', text: 'Snacks', img: "/images/diet_snack.png" },
+        { id: 'bp_m_dn', text: 'Dinner', img: "/images/diet_dinner.png" }
+      ]
+    },
+    {
+      title: 'Dietary Habits',
+      question: 'Do you eat fried foods more than 2 days per week?',
+      image: "/images/junkfood_samosa_man.png",
+      type: 'yesno',
+      yesId: 'bp_fried_yes', noId: 'bp_fried_no'
+    },
+    {
+      title: 'Dietary Habits',
+      question: 'Do you consume sugary foods or sweets more than 2 days per week?',
+      image: "/images/junkfood_sweets_donuts.png",
+      type: 'yesno',
+      yesId: 'bp_sugar_yes', noId: 'bp_sugar_no'
+    },
+    {
+      title: 'Dietary Habits',
+      question: 'Do you consume non-vegetarian food (meat, fish, eggs)?',
+      image: "/images/junkfood_fried_chicken.png",
+      type: 'yesno',
+      yesId: 'bp_nv_yes', noId: 'bp_nv_no'
+    },
+    {
+      title: 'Stress & Mental Health',
+      question: 'Have you experienced any major stress or emotional events in the last 1–2 years? \n Examples: family conflict, financial problems, loss of a loved one, work stress.',
+      image: "/images/stand_stress.png",
+      type: 'yesno',
+      yesId: 'bp_stress_yes', noId: 'bp_stress_no'
+    },
+    {
+      title: 'Medical History',
+      question: 'Select if you are suffering from any of the below mentioned diseases',
+      baseImg: "/images/thyroid_inner_part.png",
+      type: 'bodymap',
+      options: [
+        { id: 'bp_d_th', text: 'Thyroid', px: 46, py: 17, ly: 28 },
+        { id: 'bp_d_db', text: 'Diabetes', px: 49, py: 41, ly: 68 }
+      ]
+    },
+    {
+      title: 'Lifestyle',
+      question: 'Do you spend long hours sitting (desk work)?',
+      image: "/images/stress_man_laptop.png",
+      type: 'yesno',
+      yesId: 'bp_sit_yes', noId: 'bp_sit_no'
+    },
+    {
+      title: 'Lifestyle',
+      question: 'Do you currently smoke or use tobacco products?',
+      image: "/images/smoking.png",
+      type: 'yesno',
+      yesId: 'bp_smoke_yes', noId: 'bp_smoke_no'
+    },
+    {
+      title: 'Lifestyle',
+      question: 'Do you consume alcohol?',
+      image: "/images/alcohol.png",
+      type: 'yesno',
+      yesId: 'bp_alcohol_yes', noId: 'bp_alcohol_no'
+    },
+    {
+      title: 'Lifestyle',
+      question: 'Do you exercise regularly?',
+      image: "/images/exercise.png",
+      type: 'yesno',
+      yesId: 'bp_exercise_yes', noId: 'bp_exercise_no'
+    },
+    {
+      title: 'Lifestyle',
+      question: 'How many hours do you sit daily?',
+      image: "/images/sit_hours.png",
+      type: 'multiple',
+      options: [
+        { id: 'bp_hours_sit_eq', text: '8 Hours' },
+        { id: 'bp_hours_sit_gt', text: 'More than 8 Hours' },
+        { id: 'bp_hours_sit_lt', text: 'Less than 8 Hours' }
+      ]
+    }
   ]
 }
 
@@ -533,8 +862,8 @@ function BodyMapSelect({ screen, selectedIds, onToggle }) {
       }}>
         <img
           src={screen.baseImg}
-          alt="Body mapping" 
-          style={{ height: '100%', width: 'auto', maxWidth: '100%', objectFit: 'contain', borderRadius: 20 }} 
+          alt="Body mapping"
+          style={{ height: '100%', width: 'auto', maxWidth: '100%', objectFit: 'contain', borderRadius: 20 }}
         />
 
         {/* SVG Lines */}

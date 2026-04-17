@@ -4,24 +4,24 @@ import { saveUserProfile } from '../services/localStorageService'
 const defaultUser = {
   uid: '', name: '', mobile: '', email: '', age: '', gender: 'Male',
   isLoggedIn: false, isProfileComplete: false,
-  selectedCategoryId: 0,    selectedCategoryName: '',
+  selectedCategoryId: 0, selectedCategoryName: '',
   selectedSubCategoryId: 0, selectedSubCategoryName: '',
-  appointmentDate: '',      appointmentTime: '',
+  appointmentDate: '', appointmentTime: '',
   inputAnswers: {},
 }
 
 export const useGlobalStore = create((set, get) => ({
   healthCategories: [],
-  inputScreens:     [],
-  solutions:        [],
-  adminInfo:        null,
-  selectedDoctor:   null,
-  userData:         { ...defaultUser },
+  inputScreens: [],
+  solutions: [],
+  adminInfo: null,
+  selectedDoctor: null,
+  userData: { ...defaultUser },
 
-  setCategories:   (cats)    => set({ healthCategories: cats }),
-  setAdmin:        (info)    => set({ adminInfo: info }),
+  setCategories: (cats) => set({ healthCategories: cats }),
+  setAdmin: (info) => set({ adminInfo: info }),
   setInputScreens: (screens) => set({ inputScreens: screens }),
-  setSolutions:    (sols)    => set({ solutions: sols }),
+  setSolutions: (sols) => set({ solutions: sols }),
 
   selectDoctor: (categoryId) => {
     const cat = get().healthCategories.find(c => c.id === categoryId)
@@ -39,9 +39,9 @@ export const useGlobalStore = create((set, get) => ({
     set(s => ({
       userData: {
         ...s.userData,
-        selectedCategoryId: 0,    selectedCategoryName: '',
+        selectedCategoryId: 0, selectedCategoryName: '',
         selectedSubCategoryId: 0, selectedSubCategoryName: '',
-        appointmentDate: '',      appointmentTime: '',
+        appointmentDate: '', appointmentTime: '',
         inputAnswers: {},
       },
       selectedDoctor: null,

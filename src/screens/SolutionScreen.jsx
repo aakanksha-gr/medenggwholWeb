@@ -98,41 +98,176 @@ function buildSolution(userData) {
         }
     }
 
-    // THYROID & LIFESTYLE (Category 3)
+    // OBESITY AND WEIGHT GAIN (Category 3)
     if (catId === 3 || hasAny('t_fried_yes', 't_sugar_yes', 't_nv_yes', 't_stress_yes', 't_sit_yes', 't_d_th', 't_d_bp', 't_d_db')) {
-        let diseases = [];
-        if (ids.has('t_d_th')) diseases.push('Thyroid');
-        if (ids.has('t_d_bp')) diseases.push('Blood Pressure');
-        if (ids.has('t_d_db')) diseases.push('Diabetes');
-
         let riskFactors = [];
         if (ids.has('t_fried_yes')) riskFactors.push('High fried food intake');
         if (ids.has('t_sugar_yes')) riskFactors.push('Frequent sugary foods');
         if (ids.has('t_sit_yes')) riskFactors.push('Sedentary lifestyle');
         if (ids.has('t_stress_yes')) riskFactors.push('Elevated stress levels');
+        if (ids.has('t_d_th')) riskFactors.push('Thyroid-related metabolic shift');
+
+        let complications = [];
+        if (ids.has('t_d_bp')) complications.push('Blood Pressure');
+        if (ids.has('t_d_db')) complications.push('Diabetes');
 
         let mealsCount = ['t_m_bf', 't_m_lu', 't_m_sn', 't_m_dn'].filter(m => ids.has(m)).length;
 
         return {
-            title: 'Metabolic & Lifestyle Assessment',
+            title: 'Obesity and Weight Gain Assessment',
             color: '#3B82F6',
             icon: 'monitor_weight',
             sections: [
                 {
-                    title: 'Current Conditions',
-                    content: diseases.length > 0 ? `Active management required for: ${diseases.join(' • ')}.` : 'Focused on metabolic optimization and prevention.'
+                    title: 'Weight Management Profile',
+                    content: complications.length > 0 ? `Metabolic risk factors identified: ${complications.join(' • ')}.` : 'Currently focused on preventive weight management.'
                 },
                 {
-                    title: 'Nutrition Analysis',
-                    content: mealsCount < 3 ? 'Irregular meal patterns detected. Consistent nutrition is key for thyroid and metabolic health.' : 'Standard meal frequency reported. Watch for high-calorie intake from fried or sugary items.'
+                    title: 'Nutrition & Lifestyle',
+                    content: mealsCount < 3 ? 'Irregular meal patterns detected. Consistent nutrition is critical for stabilizing weight and metabolism.' : 'Standard meal frequency reported. Focus on reducing caloric density from fats and sugars.'
                 },
                 {
-                    title: 'Identified Risk Factors',
-                    content: riskFactors.length > 0 ? riskFactors.join(' • ') : 'No high-risk lifestyle factors identified at this time.'
+                    title: 'Risk Factors',
+                    content: riskFactors.length > 0 ? `Factors contributing to weight gain: ${riskFactors.join(' • ')}.` : 'No significant lifestyle risk factors identified.'
                 },
                 {
                     title: 'Actionable Advice',
-                    content: 'Maintain a consistent meal schedule. Replace refined sugars with whole grains and ensure at least 30 minutes of physical activity daily to combat sedentary habits.'
+                    content: 'Prioritize a high-fiber, protein-rich diet to manage satiety. Aim for 150 minutes of moderate activity weekly and monitor portion sizes to combat steady weight gain.'
+                }
+            ]
+        }
+    }
+
+    // STRESS & ANXIETY (Category 4)
+    if (catId === 4 || hasAny('s_teacher_yes', 's_friends_yes', 's_parent_yes', 's_focus_yes', 's_mental_yes', 's_medication_yes')) {
+        let sources = [];
+        if (ids.has('s_teacher_yes')) sources.push('Academic Environment (Teaching/Exam fear)');
+        if (ids.has('s_friends_yes')) sources.push('Social Pressure (Peer performance)');
+        if (ids.has('s_parent_yes')) sources.push('Parental Expectations');
+
+        let hasFocusIssues = ids.has('s_focus_yes');
+        let needsClinicalCare = hasAny('s_mental_yes', 's_medication_yes');
+
+        return {
+            title: 'Academic & Social Stress Assessment',
+            color: '#8B5CF6',
+            icon: 'psychology',
+            sections: [
+                {
+                    title: 'Environmental Stressors',
+                    content: sources.length > 0
+                        ? `Significant strain detected from: ${sources.join(' • ')}.`
+                        : 'General academic and social strain detected.'
+                },
+                {
+                    title: 'Concentration & Focus',
+                    content: hasFocusIssues
+                        ? 'Your stress level is currently high enough to disrupt your cognitive focus. This "brain fog" is a common physiological response to academic pressure.'
+                        : 'You show resilience in maintaining concentration despite external pressures.'
+                },
+                {
+                    title: 'Clinical & Medical Note',
+                    content: needsClinicalCare
+                        ? 'Given your history or current medication, please ensure you discuss these specific academic stressors with a professional to prevent burnout.'
+                        : 'No prior mental health history reported. Focus on proactive stress management to maintain your wellbeing.'
+                },
+                {
+                    title: 'Actionable Advice',
+                    content: 'Counteract exam fear by practicing mock tests in a low-pressure setting. If peer comparison is a trigger, shift focus to your personal growth milestones. Schedule a daily "worry window" to process these thoughts outside of study hours.'
+                }
+            ]
+        }
+    }
+
+    // DIABETES (Category 5)
+    if (catId === 5 || hasAny('diab_frequent_urination_yes', 'diab_excessive_thirst_yes', 'diab_unexplained_weight_loss_yes', 'diab_hunger_yes', 'diab_fatigue_yes', 'diab_blurred_vision_yes', 'diab_slow_healing_yes')) {
+        let symptomsCount = ['diab_frequent_urination_yes', 'diab_excessive_thirst_yes', 'diab_unexplained_weight_loss_yes', 'diab_hunger_yes', 'diab_fatigue_yes', 'diab_blurred_vision_yes', 'diab_slow_healing_yes'].filter(id => ids.has(id)).length;
+
+        let riskFactors = [];
+        if (ids.has('diab_family_yes')) riskFactors.push('Genetic History');
+        if (ids.has('diab_smoke_yes')) riskFactors.push('Tobacco Use');
+        if (ids.has('diab_alcohol_yes')) riskFactors.push('Alcohol Consumption');
+        if (ids.has('diab_hours_sit_gt')) riskFactors.push('Sedentary Behavior (>8 hrs sitting)');
+        if (ids.has('diab_sugar_yes')) riskFactors.push('High Sugar Intake');
+
+        let skippedMeals = !ids.has('diab_m_bf') || !ids.has('diab_m_lu') || !ids.has('diab_m_dn');
+
+        return {
+            title: 'Diabetes & Metabolic Risk Profile',
+            color: '#10B981',
+            icon: 'bloodtype',
+            sections: [
+                {
+                    title: 'Risk Level Analysis',
+                    content: (symptomsCount >= 3 || ids.has('diab_family_yes'))
+                        ? `Elevated risk detected based on ${symptomsCount} physical markers and hereditary factors.`
+                        : 'Moderate metabolic risk identified; preventive measures are highly recommended.'
+                },
+                {
+                    title: 'Lifestyle & Environmental Impact',
+                    content: `${riskFactors.length > 0 ? `Risk factors detected: ${riskFactors.join(' • ')}.` : 'Minimal lifestyle risk factors identified.'} ${skippedMeals ? 'Note: Skipping primary meals increases the risk of glycemic instability.' : ''}`
+                },
+                {
+                    title: 'Clinical Comorbidities',
+                    content: hasAny('diab_d_th', 'diab_d_bp')
+                        ? 'Existing Thyroid or Blood Pressure issues compound your metabolic risk and require a unified management approach.'
+                        : 'No significant chronic comorbid conditions reported.'
+                },
+                {
+                    title: 'Specialist Advice',
+                    content: 'We strongly recommend a Fasting Blood Sugar and HbA1c screening. Shift to a low-glycemic diet, eliminate refined sugars, and incorporate short walks throughout the day to counter the effects of prolonged sitting.'
+                }
+            ]
+        }
+    }
+
+    // BLOOD PRESSURE (Category 6)
+    if (catId === 6 || hasAny('bp_d_ha', 'bp_d_dz', 'bp_d_bv', 'bp_d_cp', 'bp_d_sb', 'bp_nosebleed_yes', 'bp_fatigue_yes')) {
+        let clinicalSymptoms = [];
+        if (ids.has('bp_d_ha')) clinicalSymptoms.push('Severe Headaches');
+        if (ids.has('bp_d_cp')) clinicalSymptoms.push('Chest Pain');
+        if (ids.has('bp_d_sb') || ids.has('bp_shortness_of_breath_yes')) clinicalSymptoms.push('Shortness of Breath');
+        if (ids.has('bp_nosebleed_yes')) clinicalSymptoms.push('Nosebleed');
+        if (ids.has('bp_d_dz')) clinicalSymptoms.push('Dizziness');
+        if (ids.has('bp_d_bv')) clinicalSymptoms.push('Blurred Vision');
+        if (ids.has('bp_fatigue_yes')) clinicalSymptoms.push('Chronic Fatigue');
+
+        let lifestyleRisks = [];
+        if (ids.has('bp_smoke_yes')) lifestyleRisks.push('Tobacco Use');
+        if (ids.has('bp_alcohol_yes')) lifestyleRisks.push('Alcohol Consumption');
+        if (ids.has('bp_hours_sit_gt')) lifestyleRisks.push('Extreme Sedentary Behavior (>8 hrs)');
+        if (ids.has('bp_fried_yes')) lifestyleRisks.push('High Fried Food Intake');
+        if (ids.has('bp_sugar_yes')) lifestyleRisks.push('High Sugar/Sweet Intake');
+        if (ids.has('bp_nv_yes')) lifestyleRisks.push('High Meat/Non-Veg Diet');
+        if (ids.has('bp_stress_yes')) lifestyleRisks.push('Major Life Stressors');
+
+        let hasHistory = hasAny('bp_d_th', 'bp_d_db');
+        let irregularMeals = !ids.has('bp_m_bf') || !ids.has('bp_m_lu') || !ids.has('bp_m_dn');
+
+        return {
+            title: 'Cardiovascular Health Profile',
+            color: '#EF4444',
+            icon: 'monitor_heart',
+            sections: [
+                {
+                    title: 'Clinical Symptom Analysis',
+                    content: clinicalSymptoms.length > 0
+                        ? `Caution: Detected symptoms include ${clinicalSymptoms.join(' • ')}. These markers combined with BP fluctuations require proactive monitoring.`
+                        : 'Routine cardiovascular check requested; no acute hypertensive symptoms reported.'
+                },
+                {
+                    title: 'Lifestyle & Heart Risk Factors',
+                    content: `${lifestyleRisks.length > 0 ? `Vascular stressors identified: ${lifestyleRisks.join(' • ')}.` : 'Lifestyle habits reported are supportive of heart health.'} ${irregularMeals ? 'Warning: Irregular meal patterns can impact vascular tone stability.' : ''}`
+                },
+                {
+                    title: 'Medical Comorbidities',
+                    content: hasHistory
+                        ? 'Underlying Thyroid or Diabetes issues increase your risk of secondary hypertension and cardiac complications.'
+                        : 'No significant comorbid medical history reported.'
+                },
+                {
+                    title: 'Path to Heart Wellness',
+                    content: 'Immediate: Conduct a 7-day BP log (morning/night). Lifestyle: Adopt a DASH-style diet (low sodium, high potassium), ensure 150 min of cardio weekly, and implement stress management like 4-7-8 breathing exercises.'
                 }
             ]
         }

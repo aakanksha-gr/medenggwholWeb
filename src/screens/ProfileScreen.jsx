@@ -7,7 +7,7 @@ const GENDERS = ['Male', 'Female', 'Other']
 
 export default function ProfileScreen() {
     const nav = useNavigate()
-    const { userData, setUserData } = useGlobalStore()
+    const { userData, setUserData, logout } = useGlobalStore()
     const [name, setName] = useState(userData?.name || '')
     const [email, setEmail] = useState(userData?.email || '')
     const [age, setAge] = useState(userData?.age || '')
@@ -173,10 +173,13 @@ export default function ProfileScreen() {
                             }
                         </button>
 
-                        {/* Skip
-                        <button type="button" onClick={() => nav('/categories', { replace:true })} style={{ width:'100%', padding:'15px', borderRadius:14, background:'transparent', border:'2px solid #E5E9F5', cursor:'pointer', color:'#9CA3AF', fontSize:14, fontWeight:600, fontFamily:'inherit' }}>
-                            Skip for now
-                        </button> */}
+                        {/* Skip */}
+                        <button type="button" onClick={() => { logout(); nav('/login', { replace:true }); }} style={{ width:'100%', padding:'15px', borderRadius:14, background:'linear-gradient(135deg, #EF4444, #DC2626)', border:'none', cursor:'pointer', color:'#fff', fontSize:14, fontWeight:700, fontFamily:'inherit', boxShadow: '0 4px 12px rgba(220, 38, 38, 0.2)', transition: 'transform 0.2s' }}
+                        //   onMouseOver={e => e.currentTarget.style.transform = 'translateY(-1px)'}
+                        //   onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}
+                          >
+                            Log Out
+                        </button>
                     </div>
                 </div>
             </div>

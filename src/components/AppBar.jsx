@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function AppBar({ title, showBack = true, onBack, rightContent }) {
     const nav = useNavigate()
-    function handleBack() { if (onBack) onBack(); else nav(-1) }
+    function handleBack() { if (onBack) onBack(); else nav('/categories') }
 
     return (
         <>
